@@ -63,14 +63,21 @@ class MoviesViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("loading screeen")
+        let cell = sender as! UITableViewCell
+        let indexPath=TableView.indexPath(for: cell)!
+        let movie = Movies[indexPath.row]
+        let detailsViewController=segue.destination as! MovieDetailViewController
+        detailsViewController.movie=movie
+        TableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+ 
 
 }
